@@ -1,14 +1,14 @@
 //SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/ERC721.sol";
+//import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/ERC721.sol";
 
 /**
  * @title Tech Insurance tor
  * @dev complete the functions
  */
  
-contract TechInsurance is ERC721("rafah", "CryptoNinja") {
+contract TechInsurance {  //is ERC721("Tahani", "CryptoNinja") 
     /** 
      * Define two structs
      * 
@@ -30,27 +30,48 @@ contract TechInsurance is ERC721("rafah", "CryptoNinja") {
     
     uint productCounter;
     
-    address payable public insOwner;
+    address public insOwner;
     
+    
+    mapping(address => uint256)private _balances;
     mapping (uint256 => address) private _owners;
     
-    event transfer(address from, address to, uint tokenId);
     
-    function transferFrom(address from, address to, uint256 tokenId) public virtual override {
-        require(_isApprovedOrOwner(_msgSender(), tokenId), "ERC721: transfer caller is not owner nor approved");
+    //event transfer(address from, address to, uint tokenId);
+    
+    function transferFrom(address to, uint256 _Id) public{
+       require(msg.sender != to," You are the owner of this Insurance ");
+       require(ownerOf(_Id) == msg.sender," Your not the Owner ");
+       _transfer(msg.sender, to, _Id);
 
-        _transfer(from, to, tokenId);
+    }
+    
+   function balanceOf(address owner)public view returns(uint256){
+         require(owner != address(0));
+         return _balances[owner];
+     }
+     
+     function ownerOf(uint256 _id)public view returns(address){
+         address owner = _owners[_id];
+          require(owner != address(0));
+          return owner;
+     }
+     
+     
+     function _transfer(address from, address to, uint256 tokenId) public {
+        require(to != address(0));
+
+        _balances[from] -= 1;
+        _balances[to] += 1;
+        _owners[tokenId] = to;
     }
     
     
-    function ownerOf(uint256 tokenId) public view virtual override returns (address) {
-        address owner = _owners[tokenId];
-        require(owner != address(0), "ERC721: owner query for nonexistent token");
-        return owner;
-    }
-    
-    constructor(address payable _insOwner) public{
-        insOwner = _insOwner;
+
+     
+     
+    constructor() public{
+        insOwner = msg.sender;
     }
     
     function addProduct(uint _productId, string memory _productName, uint _price ) public {
@@ -78,14 +99,15 @@ contract TechInsurance is ERC721("rafah", "CryptoNinja") {
         
     uint256 public start = block.timestamp ;
     
-    function buyInsurance( uint _Index, uint dayAfter) public payable {
+    function buyInsurance( uint _Index) public payable { //uint dayAfter
         require(productIndex[_Index].offered == true, "InsuranceId already exists");
-        require(block.timestamp < start + dayAfter * 3 days,"not allowed");
+        //require(block.timestamp < start + dayAfter * 3 days,"not allowed");
         Client memory newClient;
         newClient.isValid = true;
         newClient.time = block.timestamp;
         uint256 price = productIndex[_Index].price;
         payable(msg.sender).transfer(price);
+
     } 
     
     
