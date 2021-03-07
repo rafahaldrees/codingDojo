@@ -8,7 +8,7 @@ pragma solidity ^0.8.0;
  * @dev complete the functions
  */
  
-contract TechInsurance {  //is ERC721("Tahani", "CryptoNinja") 
+contract TechInsurance {  //is ERC721("rafah", "CryptoNinja") 
     /** 
      * Define two structs
      * 
