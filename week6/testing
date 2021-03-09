@@ -1,0 +1,186 @@
+RAFAH-ALDREESs-MacBook-Pro:week6 RAFAH$ truffle devlop
+Truffle Develop started at http://127.0.0.1:9545/
+
+Accounts:
+(0) 0x81c4e0ca06a26871db76e8e9c1735cef301104e1
+(1) 0xb0b795fe691c0d2678d969e37f7e79a97d4d7ea7
+(2) 0x80cb6b53cdee05dc4e89773623fa49699bd50243
+(3) 0xf15339d9187c2b6f643f1acf43ba7308db30dbe5
+(4) 0xf1dae7a01784ab371d20b49612415d56035678f7
+(5) 0xd0e486c203265ad73fe7713cc03cacccaac8e230
+(6) 0xca6ac1629c2a1e9b87f964531e4050577838ef3b
+(7) 0x21bd593ad26b442dc5e41b0c6845c6b7376d305a
+(8) 0xc71b28254abed2d1fdb7e0e9001bc1ffb2b1d9ce
+(9) 0xd74b340acb9542602952c4f00be9b7d70c0c6c3e
+
+Private Keys:
+(0) c3ecf0017990c8f3342408dbdc24e602ef571eb49e9d17cd3997f799ab022daf
+(1) 4aa0a78957913cd3b41f55ac5d3f04815343ee849e6e6b2fdaa845106151851b
+(2) 928e322cd4050f38eeea5ea2aa861d95a24feb8dd56000f0a4d4f1eefc11b87c
+(3) 99ad87ab562853f827c7bdc51651536786d18631fda1a6eb742ee760acdd2eb7
+(4) 536d6db73905625674a564127158e4b25db1b2f092e1d192e33414324054f9cc
+(5) 87b261503978ac7ea5198ba9b0c8cbc2793af4461d75c696d6e4dbc20fb7f3d7
+(6) 2805661f2438cb65cdf3d781edbdaf551ceb8ed72229fd5be8f184cf5bda154d
+(7) 96acd653a6f63e6533377cd78ae250fe989f3ac61bbb97815717933151ba082b
+(8) 64c51e54b2ef44f8fa63c6167f6bf8147d570bbaffabef7226851bb58d500df5
+(9) 2ea9c3f03de0bc8108ccfbb2826dc69eb864c1bedf192e82db4e8251d489542e
+
+Mnemonic: sustain six blast stadium fit ridge shrug ten equip equal fury anchor
+
+⚠️  Important ⚠️  : This mnemonic was created for you by Truffle. It is not secure.
+Ensure you do not use it on production blockchains, or else you risk losing funds.
+
+truffle(develop)> migrate --reset
+
+Compiling your contracts...
+===========================
+> Compiling ./contracts/Cars.sol
+> Artifacts written to /Users/RAFAH/Desktop/week6/build/contracts
+> Compiled successfully using:
+   - solc: 0.7.0+commit.9e61f92b.Emscripten.clang
+
+
+
+Starting migrations...
+======================
+> Network name:    'develop'
+> Network id:      5777
+> Block gas limit: 6721975 (0x6691b7)
+
+
+1_initial_migration.js
+======================
+
+   Replacing 'Migrations'
+   ----------------------
+   > transaction hash:    0xf39b73e8717425f2d5378a7737c98208647dd242511792572f760e54753e7130
+   > Blocks: 0            Seconds: 0
+   > contract address:    0xd050bdd463F8ae8D2e7dCEe1185D969a6E65F8B4
+   > block number:        1
+   > block timestamp:     1615298098
+   > account:             0x81c4E0CA06A26871dB76E8E9C1735cEf301104e1
+   > balance:             99.99626098
+   > gas used:            186951 (0x2da47)
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00373902 ETH
+
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:          0.00373902 ETH
+
+
+2_initial_Cars.js
+=================
+
+   Deploying 'Cars'
+   ----------------
+   > transaction hash:    0x4ca8ff5e52fbea042fe88702356121e8cb22a340b8e7a85846b40378c4f85b30
+   > Blocks: 0            Seconds: 0
+   > contract address:    0xb8Cfe3a26D6a987B5E09Fc2B8041Bb705925D514
+   > block number:        3
+   > block timestamp:     1615298099
+   > account:             0x81c4E0CA06A26871dB76E8E9C1735cEf301104e1
+   > balance:             99.97908106
+   > gas used:            816661 (0xc7615)
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.01633322 ETH
+
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:          0.01633322 ETH
+
+
+Summary
+=======
+> Total deployments:   2
+> Final cost:          0.02007224 ETH
+
+
+- Blocks: 0            Seconds: 0
+- Saving migration to chain.
+- Blocks: 0            Seconds: 0
+- Saving migration to chain.
+
+truffle(develop)> test 
+Using network 'develop'.
+
+
+Compiling your contracts...
+===========================
+> Compiling ./test/contracts/Migrations.sol
+> Compiling ./test/contracts/in.sol
+
+/Users/RAFAH/Desktop/week6/test/contracts/in.sol:2:1: ParserError: Source file requires different compiler version (current compiler is 0.7.0+commit.9e61f92b.Emscripten.clang) - note that nightly builds are considered to be strictly less than the released version
+pragma solidity ^0.8.0;
+^---------------------^
+
+Error: Truffle is currently using solc 0.7.0, but one or more of your contracts specify "pragma solidity ^0.8.0".
+Please update your truffle config or pragma statement(s).
+(See https://trufflesuite.com/docs/truffle/reference/configuration#compiler-configuration for information on
+configuring Truffle to use a specific solc compiler version.)
+
+Compilation failed. See above.
+
+truffle(develop)> test
+Using network 'develop'.
+
+
+Compiling your contracts...
+===========================
+> Compiling ./test/contracts/Migrations.sol
+> Compiling ./test/contracts/in.sol
+> Compilation warnings encountered:
+
+    /Users/RAFAH/Desktop/week6/test/contracts/in.sol:73:5: Warning: Visibility for constructor is ignored. If you want the contract to be non-deployable, making it "abstract" is sufficient.
+    constructor() public{
+    ^ (Relevant source part starts here and spans across multiple lines).
+
+> Artifacts written to /var/folders/82/rn1v8lp500l31ncgkl619z5h0000gn/T/test--68901-py5e9U73JMYP
+> Compiled successfully using:
+   - solc: 0.7.0+commit.9e61f92b.Emscripten.clang
+
+
+
+  Contract: Cars
+    ✓ should add a car (640ms)
+    ✓ is for sale (917ms)
+    1) Sold the car to user2
+
+    Events emitted during test:
+    ---------------------------
+
+    Cars.CarLoaded(
+      name: 'BNZ' (type: string),
+      year: 2020 (type: uint256),
+      amount: 7000000000000000000 (type: uint256)
+    )
+
+
+    ---------------------------
+
+
+  2 passing (4s)
+  1 failing
+
+  1) Contract: Cars
+       Sold the car to user2:
+
+      AssertionError: expected '0x0000000000000000000000000000000000000000' to equal '0xb0B795Fe691c0d2678d969e37f7E79A97D4d7eA7'
+      + expected - actual
+
+      -0x0000000000000000000000000000000000000000
+      +0xb0B795Fe691c0d2678d969e37f7E79A97D4d7eA7
+      
+      at Context.<anonymous> (test/test/test.js:49:20)
+      at processTicksAndRejections (internal/process/task_queues.js:93:5)
+
+
+
+
+truffle(develop)> 
